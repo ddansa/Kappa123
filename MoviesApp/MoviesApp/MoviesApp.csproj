@@ -181,10 +181,33 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\css\style.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\sass\style.scss" />
+    <Content Include="Content\sass\partials\_include-media.scss" />
+    <Content Include="Content\sass\partials\_kek.scss" />
+    <Content Include="Content\sass\partials\_layout.scss" />
+    <Content Include="Content\sass\partials\_main.scss" />
+    <Content Include="Content\sass\partials\_reset.scss" />
+    <Content Include="Content\sass\partials\_variables.scss" />
+    <Content Include="Content\sass\partials\jeet\_functions.scss" />
+    <Content Include="Content\sass\partials\jeet\_grid.scss" />
+    <Content Include="Content\sass\partials\jeet\_jeet.scss" />
+    <Content Include="Content\sass\partials\jeet\_settings.scss" />
+    <Content Include="Content\sass\partials\jeet\.svn\entries" />
+    <Content Include="Content\sass\partials\jeet\.svn\format" />
+    <Content Include="Content\sass\partials\jeet\.svn\wc.db" />
+    <Content Include="Content\sass\partials\jeet\.svn\wc.db-journal" />
+    <Content Include="gruntfile.js" />
+    <Content Include="package.json" />
+    <Content Include="Content\css\style.css.map" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
+    <Content Include="Scripts\common\app.js" />
+    <Content Include="Scripts\common\kappa.js" />
+    <Content Include="Scripts\common\main.js" />
+    <Content Include="Scripts\common\movie.js" />
     <Content Include="Scripts\jquery-2.1.4.js" />
     <Content Include="Scripts\jquery-2.1.4.min.js" />
     <Content Include="Scripts\jquery-2.1.4.min.map" />
@@ -193,6 +216,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\external\js.cookie.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.js" />

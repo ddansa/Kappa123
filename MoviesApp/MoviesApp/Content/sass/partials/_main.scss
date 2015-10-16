@@ -1,0 +1,126 @@
+/// <reference path="_variables.scss" />
+/// <reference path="_include-media.scss" />
+/// <reference path="jeet/jeet.scss" />
+
+body {
+	font: normal small Verdana, Geneva, sans-serif;
+	background: $white;
+	color: $black;
+	line-height: 1.4;
+}
+
+h1, h2, h3, h4 {
+	line-height: 1.2;
+}
+
+h1 {
+	font-size: 2em;
+}
+
+h2 {
+	font-size: 1.75em;
+}
+
+h3 {
+	font-size: 1.5em;
+}
+
+h4 {
+	font-size: 1.25em;
+}
+
+
+.dark {
+	background: $darkgray;
+	color: $white;
+}
+
+#cover-scroller-wrap {
+	h2 {
+		color: #999;
+		font-weight: 700;
+		padding: $padding-medium 30px 0;
+	}
+}
+
+#primary-nav {
+	height: 40px;
+	overflow: hidden;
+	background: $black;
+	li {
+		&:first-child {
+			margin-right: $padding-large;
+		}
+		float: left;
+		a {
+			color: $white;
+		    padding: 12px 18px;
+			background: $black;
+			display: block;
+			text-decoration: none;
+			&:hover {
+
+			}
+		}
+	}
+}
+
+
+/* movie page */
+.movie-page {
+	.movie-header {
+	  width: 100%;
+	  height: 25%;
+	}
+
+	.movie_pic img {
+	  
+	  width: 60%;
+	}
+
+	.movie-top_content h1 {
+	  display: block;
+	  font-size: 2em;
+	  margin-top: 0.67em;
+	  margin-bottom: 0.67em;
+	  margin-left: 0;
+	  margin-right: 0;
+	  font-weight: bold;
+	}
+
+	h2 {
+	  display: block;
+	  font-size: 1.5em;
+	  margin-top: 0.83em;
+	  margin-bottom: 0.83em;
+	  margin-left: 0;
+	  margin-right: 0;
+	  font-weight: bold;
+	}
+
+	h3 {
+	  display: block;
+	  font-size: 1.17em;
+	  margin-top: 1em;
+	  margin-bottom: 1em;
+	  margin-left: 0;
+	  margin-right: 0;
+	  
+	}
+
+
+	.director {
+	  width: 100%;
+	  height: 50%;
+	}
+
+	.actors {
+	  width: 100%;
+	  height: 50%;
+	}
+
+	.movie-content_people.col-6 {
+	  padding-left: 30%;
+
+	}
+}

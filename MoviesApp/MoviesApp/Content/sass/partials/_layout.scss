@@ -1,0 +1,201 @@
+/// <reference path="_variables.scss" />
+/// <reference path="_include-media.scss" />
+/// <reference path="jeet/jeet.scss" />
+
+
+@mixin absolute( $top: null, $right: null, $bottom: null, $left: null) {
+	position: absolute;
+	top: $top;
+	right: $right;
+	bottom: $bottom;
+	left: $left;
+}
+
+
+.col-1 {
+	@include j-column(1/12);
+}
+
+.col-2 {
+	@include j-column(2/12);
+}
+
+.col-3 {
+	@include j-column(3/12);
+}
+
+.col-4 {
+	@include j-column(4/12);
+}
+
+.col-5 {
+	@include j-column(5/12);
+}
+
+.col-6 {
+	@include j-column(6/12);
+}
+
+.col-7 {
+	@include j-column(7/12);
+}
+
+.col-8 {
+	@include j-column(8/12);
+}
+
+.col-9 {
+	@include j-column(9/12);
+}
+
+.col-10 {
+	@include j-column(10/12);
+}
+
+.col-11 {
+	@include j-column(11/12);
+}
+
+.col-12 {
+	@include j-column(12/12);
+}
+
+.endrow {
+	margin-right: 0;
+}
+
+.col-break-ph {
+	@include media('<=tablet') {
+		@include j-stack($pad: $padding-large);
+	}
+}
+
+.filler {
+	@include j-span(1);
+	min-height: 300px;
+}
+
+.caret {
+	width: 0; 
+	height: 0; 
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-top: 5px solid #000;
+}
+
+#cover-scroller {
+	padding: $padding-large;
+	white-space: nowrap;
+	overflow: auto;
+	.item {
+		position: relative;
+		display: inline-block;
+		background-color: #222;
+		width: 300px;
+		height: 169px;
+		cursor: pointer;
+		margin: 2px;
+		transition: all 100ms ease;
+		transition-delay: 0s;
+		&:hover {
+			z-index: 999;
+			transform: scale(1.12);
+			/**transition-delay: 300ms;*/
+		}
+		.overlay {
+			white-space: normal;
+			word-wrap: break-word;
+			text-shadow: $text-shadow;
+			text-transform: uppercase;
+			.top {
+				padding: 10px;
+				.rating {
+					display: inline-block;
+					border-radius: 2px;
+					color: $black;
+					background: #f0ad4e;
+					font-weight: bold;
+					font-size: 85%;
+					padding: 2px;
+					text-shadow: none;
+					min-width: 25px;
+					text-align: center;
+				}
+				.bookmark {
+					float: right;
+					visibility: hidden;
+				}
+			}
+			.bottom {
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				font-weight: 700;
+				padding: 10px;
+				.title {
+					font-size: 14px;
+					/**background-color: rgba(0,0,0,0.6);*/
+				}
+				.release {
+					font-size: 14px;
+				}
+				.genre {
+					display: block;
+					font-size: 11px;
+				}
+			}
+		}
+	}
+}
+
+.mainview {
+	position: relative;
+}
+
+.container,#sidebar {
+	min-height: 300px;
+	padding: $padding-large;
+}
+
+#footer {
+	@include absolute($left: 0, $right: 0, $bottom: 0);
+	z-index: 100;
+	footer {
+		position: relative;
+		height: 34px;
+		p {
+			@include j-align(both);
+		}
+	}
+}
+
+#main-wrap {
+	position: relative;
+	@include j-cf();
+}
+
+.moviecovers {
+	@include j-cf();
+	img {
+		margin-top: 1%;
+		@include j-column(1/5, $cycle: 5);
+		@include media('<=tablet'){
+			@include j-column(1/3, $cycle: 3);
+		}
+	}
+}
+
+.search {
+	width: 640px;
+	margin: 0 auto;
+	margin-top: 60px;
+	input {
+		width: inherit;
+		padding: 10px;
+		font-size: 1.3em;
+		font-weight: 700;
+		border: none;
+		border-radius: 5px;
+	}
+}

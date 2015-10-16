@@ -1,0 +1,135 @@
+/// <reference path="_variables.scss" />
+/// <reference path="_include-media.scss" />
+/// <reference path="jeet/jeet.scss" />
+
+
+* {
+    background: none;
+}
+
+body {
+    background: $darkgray;
+    color: $white;
+    * {
+        box-sizing: border-box;
+    }
+}
+
+#search-container {
+    background: #2B2B2B;
+}
+
+#search-wrap {
+    display: block;
+    padding: 10% 0;
+    margin: 0 auto;
+    width: 75%;
+}
+
+#filter-search-bar {
+    display: block;
+    width: 10em;
+    max-width: 600px;
+    margin: 0 auto;
+    height: 2.5em;
+    line-height: 2.5;
+    font-size: 2em;
+    background: $white;
+    border: 0;
+    border-radius: 50px;
+    outline: 0;
+    padding: 0 1em;
+    transition: width 250ms; 
+    &:focus, &.active {
+        width: 100%;
+    }
+}
+
+#main-search {
+    text-align: center;
+    > div {
+        margin-bottom: 2em;
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.filter-error {
+    display: none;
+    span {
+    padding: 0.5em 1em;
+    border-radius: 0.5em;
+    background: #C65353;
+    }
+}
+
+.filter-controller {
+    display: inline-block;
+    border-radius: 50px;
+    overflow: hidden;
+    font-size: 1.5em;
+    
+    .filter-btn {
+        cursor: pointer;
+    }
+
+    .filter-btn, label {
+        font-size: 1em;
+        border: 0;
+        outline: 0;
+        background: #309DED;
+        color: $white;
+        height: 50px;
+        line-height: 50px;
+        padding: 0 25px;
+        transition: color 150ms, background 150ms;
+    }
+
+    .filter-btn:hover, .filter-btn:focus {
+        background: #1074BC;
+    }
+
+    &.with-label {
+        .filter-btn, label {
+            padding: 0 15px;
+            float: left;
+        }
+    }
+}
+
+.moviecovers {
+    @include j-cf();
+    img {
+        margin-top: 1%;
+        @include j-column(1/6, $cycle: 6);
+    }
+    margin: 0 3%;
+}
+
+@include media('>=1400px'){
+    .moviecovers {
+        img {
+            @include j-column(1/8, $cycle: 8);
+        }
+    }
+    margin: 0 4%;
+}
+
+@include media('<=tablet'){
+    .moviecovers {
+        img {
+            @include j-column(1/4, $cycle: 4);
+        }
+    }
+    margin: 0 2%;
+}
+
+@include media('<=600px'){
+    .moviecovers {
+        img {
+            @include j-column(1/2, $cycle: 2);
+        }
+    }
+    margin: 0 1%;
+}
