@@ -27,7 +27,8 @@ namespace MoviesApp
             ));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                    "~/Content/site.css"
+                    "~/Content/css/style.css",
+                    "~/Content/css/icons.css"
             ));
             bundles.Add(new ScriptBundle("~/bundles/js").Include(
                       "~/Scripts/external/js.cookie.js"

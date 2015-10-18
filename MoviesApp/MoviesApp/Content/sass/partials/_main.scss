@@ -2,8 +2,12 @@
 /// <reference path="_include-media.scss" />
 /// <reference path="jeet/jeet.scss" />
 
+a, button, input {
+    transition: color 250ms, background 250ms, width 250ms;
+}
+
 body {
-	font: normal small Verdana, Geneva, sans-serif;
+	font: normal 14px Verdana, Geneva, sans-serif;
 	background: $white;
 	color: $black;
 	line-height: 1.4;
@@ -44,22 +48,22 @@ h4 {
 }
 
 #primary-nav {
-	height: 40px;
+	height: 38px;
+    line-height: 1;
 	overflow: hidden;
 	background: $black;
+    @include j-cf();
 	li {
-		&:first-child {
-			margin-right: $padding-large;
-		}
 		float: left;
 		a {
 			color: $white;
-		    padding: 12px 18px;
+		    padding: 12px 14px;
 			background: $black;
 			display: block;
 			text-decoration: none;
 			&:hover {
-
+                background: $white;
+                color: $black;
 			}
 		}
 	}

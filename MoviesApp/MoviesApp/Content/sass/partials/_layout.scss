@@ -11,6 +11,13 @@
 	left: $left;
 }
 
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
 
 .col-1 {
 	@include j-column(1/12);
@@ -70,8 +77,12 @@
 	}
 }
 
-.filler {
-	@include j-span(1);
+.body-content {
+    @include j-cf();
+}
+
+.filler, .mainview {
+	@include j-column(1);
 	min-height: 300px;
 }
 
@@ -88,38 +99,41 @@
 	white-space: nowrap;
 	overflow: auto;
 	.item {
-		position: relative;
-		display: inline-block;
-		background-color: #222;
-		width: 300px;
-		height: 169px;
-		cursor: pointer;
-		margin: 2px;
-		transition: all 100ms ease;
-		transition-delay: 0s;
+        position: relative;
+        display: inline-block;
+        background-color: #222;
+        width: 169px;
+        height: 169px;
+        cursor: pointer;
+        margin: 2px;
+        transition: width 200ms, height 200ms;
+        transition-delay: 100ms;
 		&:hover {
 			z-index: 999;
-			transform: scale(1.12);
-			/**transition-delay: 300ms;*/
+            width: 300px;
 		}
+        .backdrop {
+            @include absolute(0, 0, 0, 0);
+            background-position: center;
+        }
 		.overlay {
-			white-space: normal;
-			word-wrap: break-word;
+	        @include absolute(0, 0, 0, 0);
+    		word-wrap: break-word;
 			text-shadow: $text-shadow;
 			text-transform: uppercase;
 			.top {
 				padding: 10px;
 				.rating {
-					display: inline-block;
-					border-radius: 2px;
-					color: $black;
-					background: #f0ad4e;
-					font-weight: bold;
-					font-size: 85%;
-					padding: 2px;
-					text-shadow: none;
-					min-width: 25px;
-					text-align: center;
+                    display: inline-block;
+                    color: $black;
+                    background: #f0ad4e;
+                    height: 20px;
+                    font-weight: bold;
+                    font-size: .85em;
+                    padding: 2px 4px;
+                    text-shadow: none;
+                    min-width: 25px;
+                    text-align: center;
 				}
 				.bookmark {
 					float: right;
@@ -133,12 +147,16 @@
 				right: 0;
 				font-weight: 700;
 				padding: 10px;
+                font-size: 14px;
 				.title {
-					font-size: 14px;
-					/**background-color: rgba(0,0,0,0.6);*/
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    display: block;
+                    width: 100%;
 				}
 				.release {
-					font-size: 14px;
+					
 				}
 				.genre {
 					display: block;
@@ -147,10 +165,6 @@
 			}
 		}
 	}
-}
-
-.mainview {
-	position: relative;
 }
 
 .container,#sidebar {
@@ -168,11 +182,6 @@
 			@include j-align(both);
 		}
 	}
-}
-
-#main-wrap {
-	position: relative;
-	@include j-cf();
 }
 
 .moviecovers {

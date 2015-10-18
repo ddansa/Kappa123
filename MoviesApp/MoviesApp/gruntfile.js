@@ -1,4 +1,4 @@
-﻿/// <binding BeforeBuild='dev' ProjectOpened='dev' />
+/// <binding BeforeBuild='sass:dist' ProjectOpened='dev' />
 /// <vs SolutionOpened='default' />
 /*
 This file in the main entry point for defining grunt tasks and using grunt plugins.

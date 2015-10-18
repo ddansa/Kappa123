@@ -1,0 +1,28 @@
+﻿
+@foreach (var result in Model.Results)
+{
+    if (result.PosterPath != null)
+    {
+        <img src="@string.Format("http://image.tmdb.org/t/p/w185{0}", @result.PosterPath)" alt="image"/>
+    }
+    else
+    {
+        <img src="~/Content/img/PlaceholderPoster.png" alt="image" />
+    }
+    if (result.KnownFor == null)
+    {
+        continue;
+    }
+    foreach (var m in result.KnownFor)
+    {
+        if (m.PosterPath != null)
+        {
+            <img src="@string.Format("http://image.tmdb.org/t/p/w185{0}", @m.PosterPath)" alt="image" />
+        }
+        else
+        {
+            <img src="~/Content/img/PlaceholderPoster.png" alt="image" />
+        }
+    }
+}
+    

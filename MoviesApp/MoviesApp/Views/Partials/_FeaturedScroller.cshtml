@@ -1,0 +1,24 @@
+﻿<section id="featured-wrap" class="filler dark">
+    <div id="cover-scroller-wrap">
+        <h2>Popular movies</h2>
+        <div id="cover-scroller">
+            @foreach (var result in Model.Results)
+            {
+                <div class="item" style="">
+                    <div class="backdrop" style="background-image: url(@string.Format("http://image.tmdb.org/t/p/w300{0}", @result.BackdropPath))"></div>
+                    <div class="overlay">
+                        <div class="top">
+                            <span class="rating">@result.VoteAverage</span>
+                        </div>
+                        <div class="bottom">
+                            <span class="release">
+                            (@{ var txt = result.ReleaseDate.ToString().Split('-'); }@txt[0])
+                        </span>
+                            <span class="title">@result.Title</span>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
