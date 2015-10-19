@@ -12,7 +12,7 @@
             </div>
             <div class="filter-controls">
                 <div class="filter-controller">
-                    <button type="submit" id="filter-search" class="filter-btn" tabindex="2" data-url="@Url.Action("MovieSearch")"><i class="icon icon-search"></i></button>
+                    <button type="submit" id="filter-search" class="filter-btn" tabindex="2" data-src="@Url.Action("MovieSearch")"><i class="icon icon-search"></i></button>
                 </div>
             </div>
         </form>
@@ -21,33 +21,101 @@
 <div class="mainview">
     <div class="container col-12 endrow">
         <div class="moviecovers">
-
         </div>
+        <div id="sneakyLoader" class="lazy" style="visibility: hidden"></div>
     </div>
 </div>
 
-<!--@Html.Partial("../Partials/_SearchResults")-->
-
 <script type="text/javascript">
-    $("#main-search").submit(function(e) {
-        e.preventDefault();
-        $('.moviecovers').empty();
-        $('.filter-error').hide().empty();
-        var searchQ = encodeURIComponent($("#filter-search-bar").val()),
-            request = $("#filter-search").data("url");
-        if (searchQ) {
-            $.get(request, { query: searchQ }, function (data) {
-                console.log(data.trim());
+    $(function () {
+        var searchQ,
+            lazy,
+            lazyC,
+            lazyPos,
+            currentPage = 0,
+            isLoading = true,
+            request = $("#filter-search").data("src");
+
+        $.ajaxSetup({ timeout: 2000 });
+
+        window.lazySizesConfig = window.lazySizesConfig || {};
+        lazySizesConfig.lazyClass = "lazy";
+        lazySizesConfig.init = false;
+        lazySizesConfig.loadMode = 1;
+
+        /*$(document).on("lazybeforeunveil", function (e) {
+            console.log(e.target.id);
+            $.get(request, { query: searchQ, page: currentPage.toString() }, function(data) {
                 if (!data.trim()) {
-                    $('.filter-error').append('<span>No results found :(</span>').fadeIn('250');
+
                 } else {
-                    $(".moviecovers").html(data);
-                    $('html, body').animate({
-                        scrollTop: parseInt($('.moviecovers').offset().top, 10)
-                    }, 500);
+                    $(".moviecovers").append(data);
+                    currentPage++;
+                    $(".moviecovers > div").last().addClass("lazy");
+                    //$(e.target).removeClass().addClass("lazy");
+                }
+            });
+        });*/
+
+        function kindaLazy() {
+            $(window).scroll(function () {
+                lazyPos = lazy.offset().top + lazy.outerHeight();
+                var x = $(window).scrollTop() + $(window).height();
+                if (x >= lazyPos && !isLoading) {
+                    qSearch("lazy");
+                    isLoading = true;
                 }
             });
         }
-    })
+
+        function qSearch(type) {
+
+            if (type === "search")
+                currentPage = 0;
+            currentPage++;
+
+            $.ajax({
+                method: "GET",
+                url: request,
+                data: {
+                    query: searchQ,
+                    page: currentPage.toString()
+                },
+                dataType: "html"
+            }).success(function (data) {
+                if (!data.trim()) {
+                    if (type === "search") {
+                        $('.filter-error').append('<span>No results found :(</span>').fadeIn('250');
+                    } else if (type === "lazy") {
+                        $(window).unbind("scroll");
+                    } else {
+                        console.log("something went wrong with " + data.toString());
+                    } 
+                } else {
+                    $(".moviecovers").append(data);
+                    $(".lazy").removeClass("lazy");
+                    lazy = $(".moviecovers > div").last();
+                    lazy.addClass("lazy");
+                    if (type === "search") {
+                        $('html, body').animate({
+                            scrollTop: parseInt($('.moviecovers').offset().top, 10)
+                        }, 500);
+                        kindaLazy();
+                    }
+                    isLoading = false;
+                }
+            });
+        }
+
+        $("#main-search").submit(function(e) {
+            e.preventDefault();
+            $('.moviecovers').empty();
+            $('.filter-error').hide().empty();
+            searchQ = encodeURIComponent($("#filter-search-bar").val());
+            if (searchQ) {
+                qSearch("search");
+            }
+        });
+    });
 </script>
 

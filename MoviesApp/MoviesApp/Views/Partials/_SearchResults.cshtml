@@ -3,12 +3,18 @@
 {
     if (result.PosterPath != null)
     {
-        <img src="@string.Format("http://image.tmdb.org/t/p/w185{0}", @result.PosterPath)" alt="image"/>
+        <div id="@result.Id">
+            <img src="@string.Format("http://image.tmdb.org/t/p/w300{0}", @result.PosterPath)" alt="image"/>
+        </div>
     }
     else
     {
-        <img src="~/Content/img/PlaceholderPoster.png" alt="image" />
+        <div id="@result.Id">
+            <img src="~/Content/img/PlaceholderPoster.png" alt="image"/>
+        </div>
     }
+
+
     if (result.KnownFor == null)
     {
         continue;
@@ -17,12 +23,15 @@
     {
         if (m.PosterPath != null)
         {
-            <img src="@string.Format("http://image.tmdb.org/t/p/w185{0}", @m.PosterPath)" alt="image" />
+            <div id="@m.Id">
+                <img src="@string.Format("http://image.tmdb.org/t/p/w300{0}", @m.PosterPath)" alt="image"/>
+            </div>
         }
         else
         {
-            <img src="~/Content/img/PlaceholderPoster.png" alt="image" />
+            <div id="@m.Id">
+                <img src="~/Content/img/PlaceholderPoster.png" alt="image"/>
+            </div>
         }
     }
 }
-    

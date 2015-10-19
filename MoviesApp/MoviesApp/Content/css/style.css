@@ -17,8 +17,6 @@ time, mark, audio, video {
   font: inherit;
   font-size: 100%;
   vertical-align: baseline;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
   box-sizing: border-box; }
 
 html {
@@ -52,7 +50,8 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 /**** SASS VARIABLES ****/
 /*****   Colors   *****/
 a, button, input {
-  transition: color 250ms, background 250ms, width 250ms; }
+  -webkit-transition: color 250ms, background 250ms, width 250ms;
+          transition: color 250ms, background 250ms, width 250ms; }
 
 body {
   font: normal 14px Verdana, Geneva, sans-serif;
@@ -314,8 +313,10 @@ h4 {
     height: 169px;
     cursor: pointer;
     margin: 2px;
-    transition: width 200ms, height 200ms;
-    transition-delay: 100ms; }
+    -webkit-transition: width 200ms, height 200ms;
+            transition: width 200ms, height 200ms;
+    -webkit-transition-delay: 100ms;
+            transition-delay: 100ms; }
     #cover-scroller .item:hover {
       z-index: 999;
       width: 300px; }
@@ -384,51 +385,68 @@ h4 {
     height: 34px; }
     #footer footer p {
       position: absolute;
-      transform-style: preserve-3d;
+      -webkit-transform-style: preserve-3d;
+              transform-style: preserve-3d;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%); }
+      -webkit-transform: translate(-50%, -50%);
+              transform: translate(-50%, -50%); }
 
 .moviecovers {
+  margin: 0 auto;
   *zoom: 1; }
   .moviecovers:before, .moviecovers:after {
     content: '';
     display: table; }
   .moviecovers:after {
     clear: both; }
-  .moviecovers img {
-    margin-top: 1%;
-    float: left;
-    clear: none;
-    width: 19.2%;
-    margin-left: 0;
-    margin-right: 1%; }
-    .moviecovers img:nth-of-type(n) {
-      margin-right: 1%;
-      float: left;
-      clear: none; }
-    .moviecovers img:nth-of-type(5n) {
-      margin-right: 0;
-      float: right; }
-    .moviecovers img:nth-of-type(5n + 1) {
-      clear: both; }
-    @media (max-width: 768px) {
-      .moviecovers img {
-        float: left;
-        clear: none;
-        width: 32.66667%;
-        margin-left: 0;
-        margin-right: 1%; }
-        .moviecovers img:nth-of-type(n) {
-          margin-right: 1%;
-          float: left;
-          clear: none; }
-        .moviecovers img:nth-of-type(3n) {
-          margin-right: 0;
-          float: right; }
-        .moviecovers img:nth-of-type(3n + 1) {
-          clear: both; } }
+  .moviecovers > div {
+    margin: 10px 10px 0 0;
+    width: 250px;
+    height: 375px;
+    float: left; }
+    .moviecovers > div > img {
+      width: 100%; }
 
+@media (min-width: 1380px) {
+  .moviecovers {
+    max-width: 1290px; }
+    .moviecovers > div:nth-of-type(5n) {
+      margin-right: 0; } }
+@media (min-width: 1220px) and (max-width: 1379px) {
+  .moviecovers {
+    max-width: 1040px; }
+    .moviecovers > div:nth-of-type(4n) {
+      margin-right: 0; } }
+@media (min-width: 860px) and (max-width: 1219px) {
+  .moviecovers {
+    max-width: 770px; }
+    .moviecovers > div:nth-of-type(3n) {
+      margin-right: 0; } }
+@media (min-width: 600px) and (max-width: 859px) {
+  .moviecovers {
+    max-width: 530px; }
+    .moviecovers > div {
+      width: 170px;
+      height: 255px; }
+      .moviecovers > div:nth-of-type(3n) {
+        margin-right: 0; } }
+@media (min-width: 440px) and (max-width: 599px) {
+  .moviecovers {
+    max-width: 350px; }
+    .moviecovers > div {
+      width: 170px;
+      height: 255px; }
+      .moviecovers > div:nth-of-type(2n) {
+        margin-right: 0; } }
+@media (max-width: 439px) {
+  .moviecovers {
+    max-width: 270px; }
+    .moviecovers > div {
+      width: 130px;
+      height: 195px; }
+      .moviecovers > div:nth-of-type(2n) {
+        margin-right: 0; } }
 .search {
   width: 640px;
   margin: 0 auto;
@@ -472,7 +490,8 @@ body {
   border-radius: 50px;
   outline: 0;
   padding: 0 1em;
-  transition: width 250ms; }
+  -webkit-transition: width 250ms;
+          transition: width 250ms; }
   #filter-search-bar:focus, #filter-search-bar.active {
     width: 100%; }
 
@@ -506,91 +525,12 @@ body {
     height: 50px;
     line-height: 50px;
     padding: 0 25px;
-    transition: color 150ms, background 150ms; }
+    -webkit-transition: color 150ms, background 150ms;
+            transition: color 150ms, background 150ms; }
   .filter-controller .filter-btn:hover, .filter-controller .filter-btn:focus {
     background: #1074BC; }
   .filter-controller.with-label .filter-btn, .filter-controller.with-label label {
     padding: 0 15px;
     float: left; }
-
-.moviecovers {
-  *zoom: 1;
-  margin: 0 3%; }
-  .moviecovers:before, .moviecovers:after {
-    content: '';
-    display: table; }
-  .moviecovers:after {
-    clear: both; }
-  .moviecovers img {
-    margin-top: 1%;
-    float: left;
-    clear: none;
-    width: 15.83333%;
-    margin-left: 0;
-    margin-right: 1%; }
-    .moviecovers img:nth-of-type(n) {
-      margin-right: 1%;
-      float: left;
-      clear: none; }
-    .moviecovers img:nth-of-type(6n) {
-      margin-right: 0;
-      float: right; }
-    .moviecovers img:nth-of-type(6n + 1) {
-      clear: both; }
-
-@media (min-width: 1400px) {
-  .moviecovers img {
-    float: left;
-    clear: none;
-    width: 11.625%;
-    margin-left: 0;
-    margin-right: 1%; }
-    .moviecovers img:nth-of-type(n) {
-      margin-right: 1%;
-      float: left;
-      clear: none; }
-    .moviecovers img:nth-of-type(8n) {
-      margin-right: 0;
-      float: right; }
-    .moviecovers img:nth-of-type(8n + 1) {
-      clear: both; }
-
-  margin: 0 4%; }
-@media (max-width: 768px) {
-  .moviecovers img {
-    float: left;
-    clear: none;
-    width: 24.25%;
-    margin-left: 0;
-    margin-right: 1%; }
-    .moviecovers img:nth-of-type(n) {
-      margin-right: 1%;
-      float: left;
-      clear: none; }
-    .moviecovers img:nth-of-type(4n) {
-      margin-right: 0;
-      float: right; }
-    .moviecovers img:nth-of-type(4n + 1) {
-      clear: both; }
-
-  margin: 0 2%; }
-@media (max-width: 600px) {
-  .moviecovers img {
-    float: left;
-    clear: none;
-    width: 49.5%;
-    margin-left: 0;
-    margin-right: 1%; }
-    .moviecovers img:nth-of-type(n) {
-      margin-right: 1%;
-      float: left;
-      clear: none; }
-    .moviecovers img:nth-of-type(2n) {
-      margin-right: 0;
-      float: right; }
-    .moviecovers img:nth-of-type(2n + 1) {
-      clear: both; }
-
-  margin: 0 1%; }
 
 /*# sourceMappingURL=style.css.map */

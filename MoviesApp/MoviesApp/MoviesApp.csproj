@@ -229,6 +229,8 @@
     <Content Include="Scripts\common\kappa.js" />
     <Content Include="Scripts\common\main.js" />
     <Content Include="Scripts\common\movie.js" />
+    <Content Include="Scripts\external\jquery.lazy.js" />
+    <Content Include="Scripts\external\lazysizes.min.js" />
     <Content Include="Scripts\jquery-2.1.4.js" />
     <Content Include="Scripts\jquery-2.1.4.min.js" />
     <Content Include="Scripts\jquery-2.1.4.min.map" />

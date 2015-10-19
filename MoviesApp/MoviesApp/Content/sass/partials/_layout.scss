@@ -185,14 +185,91 @@
 }
 
 .moviecovers {
-	@include j-cf();
-	img {
-		margin-top: 1%;
-		@include j-column(1/5, $cycle: 5);
-		@include media('<=tablet'){
-			@include j-column(1/3, $cycle: 3);
-		}
-	}
+    margin: 0 auto;
+    @include j-cf();
+    > div {
+        margin: 10px 10px 0 0;
+        width: 250px;
+        height: 375px;
+        float: left;
+        //@include j-column(1/6, $cycle: 6);
+        > img {
+            width: 100%;
+        }
+    }
+}
+
+@include media('>=1380px'){
+    .moviecovers {
+        max-width: 1290px;
+        > div {    
+        &:nth-of-type(5n) {
+                margin-right: 0;
+            }
+        }
+    }
+}
+
+@include media(">=1220px", "<1380px") {
+    .moviecovers {
+        max-width: 1040px;
+        > div {
+            &:nth-of-type(4n) {
+                margin-right: 0;
+            }
+        }
+    }
+}
+
+@include media(">=860px", "<1220px") {
+    .moviecovers {
+        max-width: 770px;
+        > div {
+            &:nth-of-type(3n) {
+                margin-right: 0;
+            }
+        }
+    }
+}
+
+@include media(">=600px", "<860px") {
+    .moviecovers {
+        max-width: 530px;
+        > div {
+            width: 170px;
+            height: 255px;
+            &:nth-of-type(3n) {
+                margin-right: 0;
+            }
+        }
+    }
+}
+
+
+@include media(">=440px", "<600px") {
+    .moviecovers {
+        max-width: 350px;
+        > div {
+            width: 170px;
+            height: 255px;
+            &:nth-of-type(2n) {
+                margin-right: 0;
+            }
+        }
+    }
+}
+
+@include media("<440px") {
+    .moviecovers {
+        max-width: 270px;
+        > div {
+            width: 130px;
+            height: 195px;
+            &:nth-of-type(2n) {
+                margin-right: 0;
+            }
+        }
+    }
 }
 
 .search {

@@ -97,39 +97,3 @@ body {
         }
     }
 }
-
-.moviecovers {
-    @include j-cf();
-    img {
-        margin-top: 1%;
-        @include j-column(1/6, $cycle: 6);
-    }
-    margin: 0 3%;
-}
-
-@include media('>=1400px'){
-    .moviecovers {
-        img {
-            @include j-column(1/8, $cycle: 8);
-        }
-    }
-    margin: 0 4%;
-}
-
-@include media('<=tablet'){
-    .moviecovers {
-        img {
-            @include j-column(1/4, $cycle: 4);
-        }
-    }
-    margin: 0 2%;
-}
-
-@include media('<=600px'){
-    .moviecovers {
-        img {
-            @include j-column(1/2, $cycle: 2);
-        }
-    }
-    margin: 0 1%;
-}

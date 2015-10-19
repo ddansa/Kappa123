@@ -15,18 +15,18 @@ namespace MoviesApp.Controllers
     public class HomeController : Controller
     {
 
-        public ActionResult Index()
+        public ActionResult Index(string page = "1")
         {
-            var popularMovies = DataController.ApiCall("popular", "movie/popular", "1");
+            var popularMovies = DataController.ApiCall("popular", "movie/popular", page);
             @ViewBag.Message = "Kappa123.";
             //@ViewBag.Kappa = popularMovies;
 
             return View(popularMovies);
         }
 
-        public ActionResult MovieSearch(string query)
+        public ActionResult MovieSearch(string query, string page = "1")
         {
-            var searchMovies = DataController.ApiCall("search", "search/multi", "1", query);
+            var searchMovies = DataController.ApiCall("search", "search/multi", page, query);
             return PartialView("../Partials/_SearchResults", searchMovies);
         }
 
